@@ -17,6 +17,8 @@ let array = [5, 2, 4, 1, 6, 9, 8];
 
 //output array = [1,4,9,25,36,64,81]
 
+//Must sort first and create empty array
+
 function sortedSquaredArray(array) {
   let result = [];
   let largestNum;
@@ -59,7 +61,10 @@ function sortedSquaredArray(array) {
 //     const element = array[i];
 
 //Optimal answer
-
+//
+// s
+// [5, 2, 4, 1, 6, 9, 8]
+//Following does not sort first
 const last = array.length - 1;
 
 let startPointer = 0;
@@ -68,11 +73,11 @@ let endPointer = last;
 const newArry = new Array(array.length);
 
 for (let i = last; i > 0; i--) {
-  const start = Math.abs(array[startPointer] ** 2);
-  const end = Math.abs(array[endPointer] ** 2);
+  const start = Math.abs(array[startPointer] ** 2); //25
+  const end = Math.abs(array[endPointer] ** 2); //81
 
   if (end > start) {
-    newArry[i] = end;
+    newArry[i] = end; //[81,64]
     endPointer--;
   } else {
     newArry[i] = start;
