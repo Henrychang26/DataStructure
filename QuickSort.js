@@ -78,29 +78,36 @@ function quickSort(array) {
 
 function quickSortHelper(array, startIdx, endIdx) {
   if (startIdx >= endIdx) return;
-  let leftIdx = startIdx;
-  let rightIdx = endIdx - 1;
-  let pivot = endIdx;
+  let leftIdx = startIdx; //index 0
+  let rightIdx = endIdx - 1; //second to last index
+  let pivot = endIdx; //last index
 
   while (leftIdx <= rightIdx) {
     if (array[leftIdx] > array[pivot] && array[rightIdx] < array[pivot]) {
+      console.log(`pivot value is : ${array[pivot]}`);
       swap(array, leftIdx, rightIdx);
+      //   console.log(swap(array, leftIdx, rightIdx));
       leftIdx++;
+      console.log(`leftIdx is : ${leftIdx}`);
       rightIdx--;
+      console.log(`RightIdx is : ${rightIdx}`);
     }
     if (array[leftIdx] <= array[pivot]) leftIdx++;
     if (array[rightIdx] >= array[pivot]) rightIdx--;
   }
   swap(array, pivot, leftIdx);
+  console.log(`left Index value is: ${array[leftIdx]}`);
+  //   console.log(swap(array, leftIdx, rightIdx));
 
   quickSortHelper(array, leftIdx - 1 - rightIdx, leftIdx - 1);
+  //   console.log(quickSortHelper(array, leftIdx - 1 - rightIdx, leftIdx - 1));
 
   quickSortHelper(array, leftIdx + 1, endIdx);
+  //   console.log(quickSortHelper(array, leftIdx + 1, endIdx));
 }
 function swap(array, leftIdx, rightIdx) {
   let temp = array[leftIdx];
   array[leftIdx] = array[rightIdx];
   array[rightIdx] = temp;
 }
-
 console.log(quickSort(array));
