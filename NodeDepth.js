@@ -146,6 +146,7 @@ function sumDepths(node, level) {
   if (!node) return 0;
 
   return (
+    // if(!node.left) {result.push(totalSum = totalSum + this.value)}
     level + sumDepths(node.left, level + 1) + sumDepths(node.right, level + 1)
   );
 }
