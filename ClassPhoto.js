@@ -16,14 +16,42 @@
 //   not a class photo that follows the stated guidelines can be taken.
 //   <p>Note: you can assume that each class has at least 2 students.</p>
 
-let redShirtHeights = [5, 8, 1, 3, 4];
-let blueShirtHeights = [6, 9, 2, 4, 5];
+let redShirtHeights = [1, 3, 4, 5, 8];
+let blueShirtHeights = [2, 4, 4, 6, 9];
 
 function classPhoto(redShirtHeights, blueShirtHeights) {
-  redShirtHeights.sort();
-  console.log(redShirtHeights);
-  blueShirtHeights.sort();
-  console.log(blueShirtHeights);
+  let red = redShirtHeights.sort((a, b) => a - b);
+  let blue = blueShirtHeights.sort((a, b) => a - b);
+
+  let front;
+  let back;
+  let result;
+
+  if (red[red.length - 1] > blue[blue.length - 1]) {
+    front = blue;
+    back = red;
+  } else {
+    front = red;
+    back = blue;
+  }
+
+  for (let i = front.length - 1; i >= 0; i--) {
+    if (front[i] < back[i]) {
+      result = true;
+    } else if (front[i] > back[i]) {
+      result = false;
+      break;
+    } else {
+      result = false;
+      break;
+    }
+  }
+  return result;
 }
 
+// let n = 0;
+
+// while (n < 3) {
+//   n++;
+// }
 classPhoto(redShirtHeights, blueShirtHeights);
