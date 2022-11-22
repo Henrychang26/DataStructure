@@ -18,7 +18,7 @@ function twoNumberSum(array, targetSum) {
 exports.twoNumberSum = twoNumberSum;
 
 //Solution 2:
-
+// let array = [12, 3, 1, 2, -6, 5,  6];
 function twoNumberSum(array, targetSum) {
   const nums = {};
   for (const num of array) {
