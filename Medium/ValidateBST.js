@@ -24,9 +24,7 @@ class BST {
 function validateBst(tree) {
   if (tree === null) return true;
   if (tree.value < min || tree.value >= max) return false;
-  if (tree.value >= max) return false;
 
-  let result = tree.value < min || tree.value >= max;
   console.log(`result: ${result}`);
   console.log(
     `result === {result} : ${result === tree.value < min || tree.value >= max}`
