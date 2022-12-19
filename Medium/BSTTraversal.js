@@ -85,13 +85,19 @@ const d = new Node(2);
 const e = new Node(5);
 const f = new Node(22);
 const g = new Node(1);
+const h = new Node(23);
+const i = new Node(19);
+const j = new Node(14);
 
 a.left = b;
 a.right = c;
 b.left = d;
 b.right = e;
+c.left = j;
 c.right = f;
 d.left = g;
+f.right = h;
+f.left = i;
 
 //            a
 //          /   \
@@ -110,13 +116,39 @@ d.left = g;
 //   console.log(array);
 //   return array;
 // }
-
+let node = 2;
 let array = [];
 function inOrderTraverse(tree, array) {
   if (!tree) return array;
   console.log(inOrderTraverse(tree.left, array));
   array.push(tree.value);
   console.log(inOrderTraverse(tree.right, array));
+  return array;
+}
+//InOrderTraversal
+// function findSuccessor(tree, node) {
+//   let successor = null;
+//   let found = false;
+
+//   function inOrderTraverse(tree) {
+//     if (tree.left) inOrderTraverse(tree.left);
+//     if (found) {
+//       successor = tree;
+//       console.log(successor);
+//       found = false;
+//     }
+//     if (tree === node) found = true;
+//     if (tree.right) inOrderTraverse(tree.right);
+//   }
+//   inOrderTraverse(tree);
+//   return successor;
+// }
+
+function inOrderTraverse(tree, array) {
+  if (!tree) return array;
+  inOrderTraverse(tree.left, array);
+  array.push(tree.value);
+  inOrderTraverse(tree.right, array);
   return array;
 }
 
@@ -135,4 +167,5 @@ function postOrderTraverse(tree, array) {
   array.push(tree.value);
   return array;
 }
-inOrderTraverse(a, array);
+// inOrderTraverse(a, array);
+console.log(findSuccessor(a, node));

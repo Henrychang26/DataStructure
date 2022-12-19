@@ -58,9 +58,9 @@ function validateBst(tree) {
 
 // let tree =   10
 //            /     \
-//           5      15
+//           7      15
 //         /   \   /   \
-//        2     5 13   22
+//        2     7 13   22
 //      /         /  \
 //     1          12  14
 const a = new BST(10);
