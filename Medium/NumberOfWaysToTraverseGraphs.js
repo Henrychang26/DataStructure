@@ -12,6 +12,8 @@ let height = 3;
 
 //Output = 10
 
+//Solution 1
+
 function numberOfWaysToTraverseGraph(width, height) {
   const ways = Array(width)
     .fill(null)
