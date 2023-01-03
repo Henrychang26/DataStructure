@@ -29,7 +29,7 @@
 // array[index] < 0 , index = index - array[index] :
 // if array[index] < 0 && index - array[index] < 0 => array.legnth -res
 
-let array = [0, 1, 1, 1, 1]; // -5 , -10, -16, i = 3
+let array = [-9, 1, 1, 1, 1]; // -5 , -10, -16, i = 3
 
 //Solution 1
 
@@ -109,3 +109,5 @@ function getNextIdx(currentIdx, array) {
   const nextIdx = (currentIdx + jump) % array.length;
   return nextIdx >= 0 ? nextIdx : nextIdx + array.length;
 }
+
+//Modulis returns negative number
