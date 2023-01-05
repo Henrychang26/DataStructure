@@ -21,47 +21,37 @@
 //        I   J   K
 
 //Output = ["A","B", "C", "D", "E", "F", "G", "H","I", "J","K"]
-// class Node {
-//   constructor(name) {
-//     this.name = name;
-//     this.children = [];
-//   }
+class Node {
+  constructor(name) {
+    this.name = name;
+    this.children = [];
+  }
 
-//   addChild(name) {
-//     this.children.push(new Node(name));
-//     return this;
-//   }
+  addChild(name) {
+    this.children.push(new Node(name));
+    return this;
+  }
 
-//   breadthFirstSearch(root) {
-//     let queue = [this]; // [A] => [C,D, E, F]
-//     console.log(queue);
-//     // let result = []
+  breadthFirstSearch(root) {
+    let queue = [this]; // [A] => [C,D, E, F]
+    console.log(queue);
+    // let result = []
 
-//     while (queue.length > 0) {
-//       const current = queue.shift();
-//       console.log(current);
-//       if (current === null) continue;
-//       root.push(current.name);
+    while (queue.length > 0) {
+      const current = queue.shift();
+      console.log(current);
+      if (current === null) continue;
+      root.push(current.name);
 
-//       for (const child of current.children) {
-//         queue.push(child);
-//       }
-//     }
-//     // console.log(root)
-//     return root;
-//   }
-// }
-
-//Array does not have to be defined in Node
-//Separate function, array needs to be defined
-
-let number = 3;
-let array = "";
-
-function testing(array) {
-  array.push(number);
-  console.log(array);
-  return array;
+      for (const child of current.children) {
+        queue.push(child);
+      }
+    }
+    // console.log(root)
+    return root;
+  }
 }
 
-testing(array);
+//Notes:
+// Array does not have to be defined in Node
+// Separate function, array needs to be defined
