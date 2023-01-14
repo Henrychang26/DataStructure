@@ -29,35 +29,30 @@ let = node      A
 
 //[[[A][0]], [B][1][C][1], [D][2][E][2][E][2][G][2], [H][3][I][3]]
 
-
-function getYoungestCommonAncestor(topAncestor, descendantOne, descendantTwo) {
-    let currentOne= descendantOne
-    let currentTwo = descendantTwo
-  
-    while(currentOne !== currentTwo){
-      currentOne = currentOne === topAncestor ? descendantTwo : currentOne.ancestor
-      currentTwo = currentTwo === topAncestor ? descendantOne : currentTwo.ancestor
-    }
-    return currentOne
-  }
-
 class AncestralTree {
   constructor(name) {
     this.name = name;
     this.ancestor = null;
   }
 }
-
+//Solution 1: Time 0(N) Space 0(N)
 function getYoungestCommonAncestor(topAncestor, descendantOne, descendantTwo) {
-    let youngest;
-  while(node.length >0){
-    if( node.name === descendantOne || descendantTwo ){
-        youngest = node.ancestor
+    const map = {}
+    let current = descendantOne
+    while(current){
+      map[current.name] = true
+      console.log(map)
+      current = current.ancestor
     }
+    current = descendantTwo
+    while(current){
+    if(map[current.name]) return current
+      else current = current.ancestor
+    }
+    return false
   }
-}
 
-//
+//Solution2: Time 0(N) Space 0(N)
 function getYoungestCommonAncestor(topAncestor, descendantOne, descendantTwo) {
     let currentOne= descendantOne
     let currentTwo = descendantTwo
