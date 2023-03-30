@@ -86,7 +86,6 @@ class LinkedList {
       let val2 = current2 === null ? 0 : current2.value
   
       let sum = val1 + val2 + carry
-      let newValue = sum % 10
   
       let newSumNode = new LinkedList(sum % 10)
   
